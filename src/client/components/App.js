@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import { withRouter } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css';
+
 import * as AuthAction from "../actions/authentication"
 import AuthService from "../services/authService"
+import NavBar from './NavBar';
 import Router from "./Router";
 import "../styles/core.scss";
 
@@ -16,6 +19,7 @@ class App extends Component {
     const loggedInUserStatus = (loggedInUser && loggedInUser.email !== null);
     return (
       <div className='app-container'>
+        <NavBar />
         <Router isAuthenticated={loggedInUserStatus} />
       </div>
     );
